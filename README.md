@@ -19,17 +19,18 @@ python main.py /videos/root --out /output/root
 
 ## Arguments
 ```
-usage: main.py [-h] [--out OUT] [--mode MODE] [--ckpt CKPT] [--threshold THRESHOLD] [--in-threshold IN_THRESHOLD] [--constant-speed] [--median-filter] [--no-median-filter] [--fully-periodic]
-               [--viz-reps] [--no-viz-reps] [--rot ROT]
+usage: main.py [-h] [--out OUT] [--ckpt CKPT] [--threshold THRESHOLD]
+               [--in-threshold IN_THRESHOLD] [--constant-speed]
+               [--median-filter] [--no-median-filter] [--fully-periodic]
+               [--viz-reps] [--no-viz-reps] [--rot ROT] [--win-size WIN_SIZE]
+               [--stride-ratio STRIDE_RATIO]
                path
-
 positional arguments:
-  path                  Input video file path or root.
-
+  path                  Input video file path or root. If 0 is given, it runs
+                        on webcam mode(EXPERIMENTAL)
 optional arguments:
   -h, --help            show this help message and exit
   --out OUT             Output video file path or root (default: ./export)
-  --mode MODE           ('video', 'webcam') (default: video)
   --ckpt CKPT           Checkpoint weights root. (default: ./weights)
   --threshold THRESHOLD
                         RepNet threshold. (default: 0.2)
@@ -42,7 +43,10 @@ optional arguments:
   --viz-reps            Vizualitation repetition mode (default: True)
   --no-viz-reps         Vizualitation repetition mode (default: True)
   --rot ROT             Rotate videos. (none, cw, ccw, 180) (default: none)
-
+  --win-size WIN_SIZE   Window size for webcam mode (default: 10)
+  --stride-ratio STRIDE_RATIO
+                        Window stride ratio respect to win-size for webcam
+                        mode (default: 0.5)
 ```
 
 # Failure case
